@@ -44,7 +44,6 @@ SWEP.IronSightsAng         = Vector(0, 0, 0)
 
 function SWEP:PrimaryAttack()
    if not self:CanPrimaryAttack() then return end
-   --self.Owner:EmitSound("scythe.mp3")
    local cone = self.Primary.Cone
    local num = 1
 
@@ -62,9 +61,10 @@ function SWEP:PrimaryAttack()
                         if SERVER or (CLIENT and IsFirstTimePredicted()) then
                            local ent = tr.Entity
                               if SERVER and ent:IsPlayer() then
-								ent:EmitSound("bonski1.mp3")
+							    local soundName = "bonski" .. math.random(1, 2)
+								ent:EmitSound(soundName)
 								ent:GodEnable()
-								local timerName = "reDance" .. math.random(1,10000)
+								local timerName = "reDance" .. math.random(1, 10000)
 								timer.Create( timerName, 1, 16, function()
 								  local danceChange = math.random(1, 2)
 								  if danceChange == 1 then
