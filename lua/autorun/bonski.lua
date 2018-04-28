@@ -22,3 +22,6 @@ sound.Add({
 	pitch = 100,
 	sound = "bonski/bonski2.wav"
 });
+
+-- randomseed
+math.randomseed(os.time())
